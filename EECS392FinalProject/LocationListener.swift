@@ -2,19 +2,17 @@
 //  LocationListener.swift
 //  EECS392FinalProject
 //
-//  Created by Samantha Frankum on 4/25/19.
+//  Created by Samantha Frankum on 4/30/19.
 //  Copyright © 2019 Alexander Marshall. All rights reserved.
 //
 
 import Foundation
 import CoreLocation
 
-class LocationListener: NSObject {
+class LocationListener: NSObject, CLLocationManagerDelegate {
     
-    // MARK: - Properties
     let manager = CLLocationManager()
     
-    // MARK: - Initializers
     override init() {
         super.init()
         
@@ -22,10 +20,6 @@ class LocationListener: NSObject {
         manager.activityType = .other
         manager.requestWhenInUseAuthorization()
     }
-}
-
-// MARK: - CLLocationManagerDelegate
-extension LocationListener: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
@@ -38,8 +32,8 @@ extension LocationListener: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard locations.last != nil else { return }
+        guard let lastLocation = locations.last else { return }
         
-        //Game.shared.visitedLocation(location: lastLocation)
+        Game.shared.visitedLocation(location: lastLocation)
     }
 }
