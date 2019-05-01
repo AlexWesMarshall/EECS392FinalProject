@@ -111,7 +111,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6y-N6-iMa">
-                                <rect key="frame" x="36" y="299" width="343" height="405"/>
+                                <rect key="frame" x="36" y="323" width="343" height="405"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VBf-h2-glS">
@@ -153,7 +153,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inventory:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6Y-gh-AmH">
-                                <rect key="frame" x="169" y="270" width="76" height="21"/>
+                                <rect key="frame" x="169" y="292" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -170,6 +170,10 @@
                         <viewLayoutGuide key="safeArea" id="gsy-o3-Gh5"/>
                     </view>
                     <navigationItem key="navigationItem" title="Status" id="g2t-Ef-uRH"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="SjO-BO-4OS" id="yrG-BH-Mse"/>
+                        <outlet property="nameLabel" destination="xoK-0g-7z7" id="Xbo-Kk-eN9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wh7-xA-tbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

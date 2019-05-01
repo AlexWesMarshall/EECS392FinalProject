@@ -17,8 +17,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.774669555422349, longitude: -73.964170794293238),
-                                               span: MKCoordinateSpan(latitudeDelta: 0.16405544070813249, longitudeDelta: 0.1232528799585566))
+        let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.508702, longitude: -81.606348),
+                                               span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
         mapView.region = initialRegion
         mapView.showsUserLocation = true
         mapView.showsCompass = true
