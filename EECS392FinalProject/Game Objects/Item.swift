@@ -10,11 +10,9 @@ import Foundation
 
 class Item {
     
-    // MARK: - Properties
     let name: String
     let cost: Int
     
-    // MARK: - Initializers
     init(name: String, cost: Int) {
         self.cost = cost
         self.name = name

@@ -9,20 +9,19 @@
 import Foundation
 
 class Player: Teacher {
-    
-    // MARK: - Properties
+
     var isDefeated = false
-    var maxNumA: Int = 0
+    var maxHomeworkCanDo: Int = 0
     var inventory: [Item] = []
     
-    override var strength: Int {
-        return baseHomeworkHours + inventory.filter { $0 is Weapon}.reduce(0, { max($0, ($1 as! Weapon).strength) })
+    //TODO: fix this
+    override var avgGrade: Int {
+        return lowestGradeGiven + inventory.filter { $0 is Textbook}.reduce(0, { max($0, ($1 as! Textbook).gradeBoost) })
     }
     
-    // MARK: - Initializers
-    override init(name: String, numAs: Int, homeworkHours: Int, extraCredit: Int = 100) {
-        super.init(name: name, numAs: numAs, homeworkHours: homeworkHours, extraCredit: extraCredit)
+    override init(name: String, homeworkGiven homeworkCanDo: Int, avgGradeGiven: Int, extraCredit: Int = 1) {
+        super.init(name: name, homeworkGiven: homeworkCanDo, avgGradeGiven: avgGradeGiven, extraCredit: extraCredit)
         
-        maxNumA = numAs
+        maxHomeworkCanDo = homeworkGiven
     }
 }

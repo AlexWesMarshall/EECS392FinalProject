@@ -10,10 +10,9 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-
-    // MARK: - IBOutlets
-    @IBOutlet var mapView: MKMapView!
     
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet weak var heartsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +24,9 @@ class MapViewController: UIViewController {
         mapView.showsCompass = true
         mapView.setUserTrackingMode(.followWithHeading, animated: true)
         
-        //Game.shared.delegate = self
+        Game.shared.delegate = self
         
-        //NotificationCenter.default.addObserver(self, selector: #selector(gameUpdated(notification:)), name: GameStateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gameUpdated(notification:)), name: GameStateNotification, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,99 +35,110 @@ class MapViewController: UIViewController {
         renderGame()
     }
     
-    func setupTileRenderer() {
-        // Add code here
-    }
-    
-    func setupLakeOverlay() {
-        // Add code here
-    }
-    
     @objc func gameUpdated(notification: Notification) {
         renderGame()
     }
 }
 
-// MARK: - MapView Delegate
-extension MapViewController: MKMapViewDelegate {
-    // Add mapview delegate code here
+extension MapViewController {
     
-}
-
-// MARK: - Game Delegate
-extension MapViewController: GameDelegate {
-    
-    func encounteredMonster(monster: Teacher) {
-        showFight(monster: monster)
+    private func heartsString() -> String {
+        guard let hp = Game.shared.player?.homeworkGiven else { return "☠️" }
+        
+        let heartCount = hp / 2
+        var string = ""
+        for _ in 1 ... heartCount {
+            string += "❤️"
+        }
+        return string
     }
     
-    func showFight(monster: Teacher, subtitle: String = "Fight?") {
-        let alert = UIAlertController()
+    private func goldString() -> String {
+        guard let extraCredit = Game.shared.player?.extraCredit else { return "" }
         
-        alert.addAction(action: AABlurAlertAction(title: "Run", style: UIAlertActionStyle.cancel) { [unowned self] _ in
-            self.showFight(monster: monster, subtitle: "I think you should really fight this.")
+        return "💰\(extraCredit)"
+    }
+    
+    fileprivate func renderGame() {
+        heartsLabel.text = heartsString() + "\n" + goldString()
+    }
+}
+
+extension MapViewController: GameDelegate {
+    
+    func encounteredTeacher(teacher: Teacher) {
+        showFight(teacher: teacher)
+    }
+    
+    func showFight(teacher: Teacher, subtitle: String = "Fight?") {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Run", style: UIAlertAction.Style.cancel) { [unowned self] _ in
+            self.showFight(teacher: teacher, subtitle: "I think you should really fight this.")
         })
         
-        alert.addAction(action: AABlurAlertAction(title: "Fight", style: UIAlertActionStyle.default) { [unowned self] _ in
-            guard let result = Game.shared.fight(monster: monster) else { return }
+        alert.addAction(UIAlertAction(title: "Fight", style: UIAlertAction.Style.default) { [unowned self] _ in
+            guard let result = Game.shared.fight(teacher: teacher) else { return }
             
             switch result {
-            case .HeroLost:
+            case .PlayerLost:
                 print("loss!")
-            case .HeroWon:
+            case .PlayerWon:
                 print("win!")
             case .Tie:
-                self.showFight(monster: monster, subtitle: "A good row, but you are both still in the fight!")
+                self.showFight(teacher: teacher, subtitle: "A good row, but you are both still in the fight!")
             }
         })
         
-        alert.blurEffectStyle = .regular
+        //adding an image
+        let image = Game.shared.image(for: teacher)
+        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
+        imageView.image = image
+        alert.view.addSubview(imageView)
         
-        let image = Game.shared.image(for: monster)
-        alert.alertImage.image = image
-        alert.alertTitle.text = "A wild \(monster.name) appeared!"
-        alert.alertSubtitle.text = subtitle
+        alert.title = "A wild \(teacher.name) appeared!"
         present(alert, animated: true) {}
     }
     
-    func encounteredNPC(npc: NPC) {
-        let alert = AABlurAlertController()
+    func encounteredDean(dean: Dean) {
+        let alert = UIAlertController()
         
-        alert.addAction(action: AABlurAlertAction(title: "No Thanks", style: AABlurActionStyle.cancel) {  _ in
+        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertAction.Style.cancel) {  _ in
             print("done with encounter")
         })
         
-        alert.addAction(action: AABlurAlertAction(title: "On My Way", style: AABlurActionStyle.default) {  _ in
+        alert.addAction(UIAlertAction(title: "On My Way", style: UIAlertAction.Style.default) {  _ in
             print("did not buy anything")
         })
         
-        alert.blurEffectStyle = .regular
+        //adding an image
+        let image = Game.shared.image(for: dean)
+        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
+        imageView.image = image
+        alert.view.addSubview(imageView)
         
-        let image = Game.shared.image(for: npc)
-        alert.alertImage.image = image
-        alert.alertTitle.text = npc.name
-        alert.alertSubtitle.text = npc.quest
+        alert.title = dean.name
         present(alert, animated: true)
     }
-    
+    /*
     func enteredStore(store: Store) {
-        let alert = AABlurAlertController()
+        let alert = UIAlertController()
         
-        alert.addAction(action: AABlurAlertAction(title: "Back Out", style: AABlurActionStyle.cancel) {  _ in
+        alert.addAction(UIAlertAction(title: "Back Out", style: UIAlertAction.Style.cancel) {  _ in
             print("did not buy anything")
         })
         
-        alert.addAction(action: AABlurAlertAction(title: "Take My 💰", style: AABlurActionStyle.default) { [unowned self] _ in
+        alert.addAction(UIAlertAction(title: "Take My 💰", style: UIAlertAction.Style.default) { [unowned self] _ in
             self.performSegue(withIdentifier: "shop", sender: store)
         })
         
-        alert.blurEffectStyle = .regular
-        
+        //adding an image
         let image = Game.shared.image(for: store)
-        alert.alertImage.image = image
-        alert.alertTitle.text = store.name
-        alert.alertSubtitle.text = "Shopping for accessories?"
+        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
+        imageView.image = image
+        alert.view.addSubview(imageView)
+        
+        alert.title = store.name
         present(alert, animated: true)
-    }
+    } */
 
 }

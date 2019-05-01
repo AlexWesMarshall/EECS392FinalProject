@@ -9,22 +9,43 @@
 import UIKit
 
 class PlayerViewController: UIViewController {
+    
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        avatarImageView.image = #imageLiteral(resourceName: "adventurer")
+    }
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+extension PlayerViewController: UICollectionViewDataSource {
+    
+    var inventory: [Item] { return Game.shared.player?.inventory ?? [] }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return inventory.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        let label = cell.viewWithTag(2) as! UILabel
+        
+        let item = inventory[indexPath.row]
+        imageView.image = Game.shared.image(for: item)
+        
+        label.text = ""
+        if let textbook = item as? Textbook {
+            label.text = "+\(textbook.gradeBoost)"
+        }
+        
+        cell.layer.cornerRadius = 8
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        
+        return cell
     }
-    */
-
 }
+
