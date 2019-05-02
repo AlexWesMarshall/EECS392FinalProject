@@ -17,29 +17,24 @@
         <cmt>I dont know yet</cmt>
     </wpt>
     <wpt lat="41.508165" lon="-81.608554">
-        <time>2019-04-18T12:01:00Z</time>
+        <time>2019-04-18T12:00:30Z</time>
         <!-- <time>2017-04-18T19:08:33Z</time> -->
         <name>Tink</name>
         <cmt>Goblin Fight</cmt>
     </wpt>
     <wpt lat="41.508156" lon="-81.605971">
-        <time>2019-04-18T12:01:30Z</time>
+        <time>2019-04-18T12:00:45Z</time>
         <name>Euclid Starbucks</name>
         <cmt>Wake me up</cmt>
     </wpt>
     <wpt lat="41.508165" lon="-81.608554">
-        <time>2019-04-18T12:02:00Z</time>
+        <time>2019-04-18T12:01:00Z</time>
         <name>KSL</name>
         <cmt>Study</cmt>
     </wpt>
     <wpt lat="41.502789" lon="-81.608062">
-        <time>2019-04-18T12:02:30Z</time>
+        <time>2019-04-18T12:01:15Z</time>
         <name>Sears Building</name>
         <cmt>Ending Point</cmt>
-    </wpt>
-    <wpt lat="41.500997" lon="-81.606147">
-        <time>2019-04-18T12:03:00Z</time>
-        <name>Veale</name>
-        <cmt>Workout</cmt>
     </wpt>
 </gpx>

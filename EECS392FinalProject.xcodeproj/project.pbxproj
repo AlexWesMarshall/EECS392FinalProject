@@ -26,6 +26,7 @@
 		40754CAF2270E4C100EEAF6C /* EECS392FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40754CAE2270E4C100EEAF6C /* EECS392FinalProjectTests.swift */; };
 		40754CBA2270E4C100EEAF6C /* EECS392FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40754CB92270E4C100EEAF6C /* EECS392FinalProjectUITests.swift */; };
 		40D9F40E227B457D00D0D231 /* CanvasNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F40D227B457D00D0D231 /* CanvasNotification.swift */; };
+		40D9F410227B67E300D0D231 /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F40F227B67E300D0D231 /* Study.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		40754CB92270E4C100EEAF6C /* EECS392FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EECS392FinalProjectUITests.swift; sourceTree = "<group>"; };
 		40754CBB2270E4C100EEAF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40D9F40D227B457D00D0D231 /* CanvasNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasNotification.swift; sourceTree = "<group>"; };
+		40D9F40F227B67E300D0D231 /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				40D9F40D227B457D00D0D231 /* CanvasNotification.swift */,
 				3F1F91412279366300BAF186 /* Textbook.swift */,
 				3F1F914B2279E63B00BAF186 /* Encounter.swift */,
+				40D9F40F227B67E300D0D231 /* Study.swift */,
 			);
 			path = "Game Objects";
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				3F1F9148227946B900BAF186 /* LocationListener.swift in Sources */,
 				3F1F914C2279E63B00BAF186 /* Encounter.swift in Sources */,
 				3F1F913E227935A000BAF186 /* Teacher.swift in Sources */,
+				40D9F410227B67E300D0D231 /* Study.swift in Sources */,
 				3F1F9134227748C000BAF186 /* Item.swift in Sources */,
 				3F1F91322275391100BAF186 /* Player.swift in Sources */,
 				3F1F913A2279095900BAF186 /* Game.swift in Sources */,

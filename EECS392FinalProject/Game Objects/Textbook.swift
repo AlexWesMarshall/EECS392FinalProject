@@ -19,5 +19,5 @@ class Textbook : Item {
 }
 
 extension Textbook {
-    static let aiTextbook = Textbook(name: "AI Textbook", cost: 50, gradeBoost: 6)
+    static let aiTextbook = Textbook(name: "Textbook", cost: 50, gradeBoost: 6)
 }

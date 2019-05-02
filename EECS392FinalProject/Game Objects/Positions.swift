@@ -27,8 +27,8 @@ class PointOfInterest: NSObject { //has to be NSObject to use with MKAnnotation 
 
 extension PointOfInterest {
     static let Sears = PointOfInterest(name: "Sears", location : CLLocation(latitude: 41.502789, longitude: -81.608062), isRegenPoint : false)
-    static let KSL = PointOfInterest(name: "Lib Lab", location : CLLocation(latitude: 41.507266, longitude: -81.609636), isRegenPoint : false)
-    static let Tink = PointOfInterest(name: "University Center", location : CLLocation(latitude: 41.508165, longitude: -81.608554), isRegenPoint : false)
+    static let KSL = PointOfInterest(name: "Lib Lab", location : CLLocation(latitude: 41.507266, longitude: -81.609636), isRegenPoint : false, encounter : Study.KSL)
+    static let Tink = PointOfInterest(name: "University Center", location : CLLocation(latitude: 41.508165, longitude: -81.608554), isRegenPoint : false, encounter : Study.Tink)
     static let Veale = PointOfInterest(name: "Gym", location : CLLocation(latitude: 41.500997, longitude: -81.606147), isRegenPoint : false)
     static let EuclidStarbucks = PointOfInterest(name: "\"Energy\" Store", location : CLLocation(latitude: 41.508156, longitude: -81.605971), isRegenPoint : true)
     static let PBL = PointOfInterest(name: "Business Center", location : CLLocation(latitude: 41.509816, longitude: -81.607754), isRegenPoint : false, encounter : CanvasNotification.PBLNotification)

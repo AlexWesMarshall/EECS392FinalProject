@@ -75,6 +75,26 @@ extension MapViewController: GameDelegate {
         let alert = UIAlertController()
         alert.addAction(UIAlertAction(title: "Close notification", style: UIAlertAction.Style.default))
         alert.title = "A Canvas notification appeared. You have \(canvasNotification.homework + (Game.shared.player?.homework)!) new homeworks"
+        Game.shared.player?.homework += canvasNotification.homework
+        for _ in 0..<canvasNotification.homework{
+            Game.shared.player?.inventory.append(Textbook.aiTextbook)
+        }
+        present(alert, animated: true)
+    }
+    
+    func studyEncounter(study : Study) {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Study", style: UIAlertAction.Style.default) { [unowned self] _ in
+            if Game.shared.player?.coffee ?? 0 <= 0 {
+                Game.shared.player?.sleep -= 1
+            }
+            else{
+                Game.shared.player?.coffee -= 1
+            }
+            Game.shared.player?.homework -= 1
+            self.renderGame()
+        })
+        alert.addAction(UIAlertAction(title: "Too cool for school 😎", style: UIAlertAction.Style.cancel))
         present(alert, animated: true)
     }
     
