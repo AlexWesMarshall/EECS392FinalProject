@@ -17,8 +17,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.508702, longitude: -81.606348),
-                                               span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
+        let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.508702, longitude: -81.606348), span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
         mapView.region = initialRegion
         mapView.showsUserLocation = true
         mapView.showsCompass = true
@@ -73,27 +72,29 @@ extension MapViewController: GameDelegate {
     
     func coffeeEncounter(coffeeShop: Starbucks, title : String?) {
         let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Buy coffee for \(coffeeShop.coffeePrice)?", style : UIAlertAction.Style.default){ [unowned self] _ in
-            if(Game.shared.player?.money ?? 0 < coffeeShop.coffeePrice){
-                self.coffeeEncounter(coffeeShop: coffeeShop, title : "I don't have enough money to buy coffee")
-            }
-            else{
-                Game.shared.player?.money -= coffeeShop.coffeePrice
-                Game.shared.player?.coffee += 1
-                self.renderGame()
-            }})
-        alert.addAction(UIAlertAction(title: "Leave", style: UIAlertAction.Style.cancel))
         if(title != nil){
             alert.title = title
         }
+        else{
+            alert.addAction(UIAlertAction(title: "Buy coffee for \(coffeeShop.coffeePrice)?", style : UIAlertAction.Style.default){ [unowned self] _ in
+                if(Game.shared.player?.money ?? 0 < coffeeShop.coffeePrice){
+                    self.coffeeEncounter(coffeeShop: coffeeShop, title : "I don't have enough money to buy coffee")
+                }
+                else{
+                    Game.shared.player?.money -= coffeeShop.coffeePrice
+                    Game.shared.player?.coffee += 1
+                    self.renderGame()
+                }})
+        }
+        alert.addAction(UIAlertAction(title: "Leave", style: UIAlertAction.Style.cancel))
         present(alert, animated: true)
     }
     
     func canvasNotification(canvasNotification: CanvasNotification) {
         let alert = UIAlertController()
         alert.addAction(UIAlertAction(title: "Close notification", style: UIAlertAction.Style.default))
-        alert.title = "A Canvas notification appeared. You have \(canvasNotification.homework + (Game.shared.player?.homework)!) new homeworks"
-        Game.shared.player?.homework += canvasNotification.homework
+        alert.title = "A Canvas notification appeared. You have \(canvasNotification.homework + (Game.shared.player?.homeworkDue)!) new homeworks"
+        Game.shared.player?.homeworkDue += canvasNotification.homework
         for _ in 0..<canvasNotification.homework{
             Game.shared.player?.inventory.append(Textbook.aiTextbook)
         }
@@ -109,7 +110,8 @@ extension MapViewController: GameDelegate {
             else{
                 Game.shared.player?.coffee -= 1
             }
-            Game.shared.player?.homework -= 1
+            Game.shared.player?.homeworkDue -= 1
+            Game.shared.player?.homeworkComplete += 1
             self.renderGame()
         })
         alert.addAction(UIAlertAction(title: "Too cool for school 😎", style: UIAlertAction.Style.cancel))
@@ -122,10 +124,7 @@ extension MapViewController: GameDelegate {
     
     func showFight(teacher: Teacher, subtitle: String = "Fight?") {
         let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Run", style: UIAlertAction.Style.cancel) /*{ [unowned self] _ in
-            self.showFight(teacher: teacher, subtitle: "I think you should really fight this.")
-        }*/)
-        
+        alert.addAction(UIAlertAction(title: "Run", style: UIAlertAction.Style.cancel))
         alert.addAction(UIAlertAction(title: "Fight", style: UIAlertAction.Style.default) { [unowned self] _ in
             guard let result = Game.shared.fight(teacher: teacher) else { return }
             

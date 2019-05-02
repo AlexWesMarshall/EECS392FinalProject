@@ -38,7 +38,7 @@ class Game {
     weak var delegate: GameDelegate?
     
     init() {
-        player = Player(name: "Frankum", homeworkGiven: 0, grade: 85, coffee: 1, sleep: 3, money : 6)
+        player = Player(name: "Frankum", homeworkGiven: 0, grade: 85, coffee: 1, sleep: 3, money : 0)
         setupPOIs()
     }
     

@@ -11,7 +11,8 @@ import Foundation
 class Player {
 
     var isDefeated = false
-    var homework : Int = 0
+    var homeworkDue : Int = 0
+    var homeworkComplete : Int = 0
     var inventory: [Item] = []
     var name : String
     var coffee : Int
@@ -21,7 +22,7 @@ class Player {
     
     init(name: String, homeworkGiven : Int, grade : Double, coffee : Int, sleep : Int, money : Int) {
         self.name = name
-        self.homework = homeworkGiven
+        self.homeworkDue = homeworkGiven
         self.grade = grade
         self.coffee = coffee
         self.sleep = sleep

@@ -21,7 +21,8 @@ class PlayerViewController: UIViewController {
         super.viewWillAppear(animated)
         avatarImageView.image = UIImage(named: "Player")
         nameLabel.text = Game.shared.player?.name
-        homeworkDueLabel.text = "Homework Assignments Due: \(Game.shared.player?.homework ?? 0)"
+        homeworkDueLabel.text = "Homework Assignments Due: \(Game.shared.player?.homeworkDue ?? 0)"
+        homeworkFinishedLabel.text = "Homework Assignments Finished: \(Game.shared.player?.homeworkComplete ?? 0)"
         moneyLabel.text = "Money: \(Game.shared.player?.money ?? 0)"
     }
 }
