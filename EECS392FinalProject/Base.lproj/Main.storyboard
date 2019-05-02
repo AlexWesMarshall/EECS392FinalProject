@@ -84,7 +84,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="heartsLabel" destination="aUz-nh-Dkp" id="97a-CV-hqO"/>
+                        <outlet property="coffeeSleepLabel" destination="aUz-nh-Dkp" id="qOF-6L-jh6"/>
                         <outlet property="mapView" destination="4ya-qO-vee" id="zEY-22-Wh9"/>
                     </connections>
                 </viewController>

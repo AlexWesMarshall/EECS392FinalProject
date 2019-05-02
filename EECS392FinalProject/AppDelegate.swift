@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let locationListener = LocationListener()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Game.shared.player = Player(name: "Frankum", homeworkGiven: 0, grade: 85, coffee: 2, sleep: 2)
+        Game.shared.player = Player(name: "Frankum", homeworkGiven: 0, grade: 85, coffee: 1, sleep: 3)
         return true
     }
 

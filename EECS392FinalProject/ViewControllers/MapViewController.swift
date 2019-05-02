@@ -12,7 +12,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet weak var heartsLabel: UILabel!
+    @IBOutlet weak var coffeeSleepLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ extension MapViewController {
     
     private func coffeeString() -> String {
         guard let coffee = Game.shared.player?.coffee else { return "☠️" }
-        
+        if(coffee == 0){ return "" }
         let coffeeCount = coffee
         var string = ""
         for _ in 1 ... coffeeCount {
@@ -55,7 +55,7 @@ extension MapViewController {
     
     private func sleepString() -> String {
         guard let sleep = Game.shared.player?.sleep else { return "" }
-        
+        if(sleep == 0){ return "" }
         let sleepCount = sleep
         var string = ""
         for _ in 1 ... sleepCount {
@@ -65,7 +65,7 @@ extension MapViewController {
     }
     
     fileprivate func renderGame() {
-        heartsLabel.text = coffeeString() + "\n" + sleepString()
+        coffeeSleepLabel.text = coffeeString() + "\n" + sleepString()
     }
 }
 
