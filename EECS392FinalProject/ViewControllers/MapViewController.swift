@@ -71,6 +71,24 @@ extension MapViewController {
 
 extension MapViewController: GameDelegate {
     
+    func coffeeEncounter(coffeeShop: Starbucks, title : String?) {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Buy coffee for \(coffeeShop.coffeePrice)?", style : UIAlertAction.Style.default){ [unowned self] _ in
+            if(Game.shared.player?.money ?? 0 < coffeeShop.coffeePrice){
+                self.coffeeEncounter(coffeeShop: coffeeShop, title : "I don't have enough money to buy coffee")
+            }
+            else{
+                Game.shared.player?.money -= coffeeShop.coffeePrice
+                Game.shared.player?.coffee += 1
+                self.renderGame()
+            }})
+        alert.addAction(UIAlertAction(title: "Leave", style: UIAlertAction.Style.cancel))
+        if(title != nil){
+            alert.title = title
+        }
+        present(alert, animated: true)
+    }
+    
     func canvasNotification(canvasNotification: CanvasNotification) {
         let alert = UIAlertController()
         alert.addAction(UIAlertAction(title: "Close notification", style: UIAlertAction.Style.default))
@@ -130,47 +148,4 @@ extension MapViewController: GameDelegate {
         alert.title = "A wild \(teacher.name) appeared!"
         present(alert, animated: true) {}
     }
-    
-    func encounteredDean(dean: Dean) {
-        let alert = UIAlertController()
-        
-        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertAction.Style.cancel) {  _ in
-            print("done with encounter")
-        })
-        
-        alert.addAction(UIAlertAction(title: "On My Way", style: UIAlertAction.Style.default) {  _ in
-            print("did not buy anything")
-        })
-        
-        //adding an image
-        let image = Game.shared.image(for: dean)
-        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
-        imageView.image = image
-        alert.view.addSubview(imageView)
-        
-        alert.title = dean.name
-        present(alert, animated: true)
-    }
-    /*
-    func enteredStore(store: Store) {
-        let alert = UIAlertController()
-        
-        alert.addAction(UIAlertAction(title: "Back Out", style: UIAlertAction.Style.cancel) {  _ in
-            print("did not buy anything")
-        })
-        
-        alert.addAction(UIAlertAction(title: "Take My 💰", style: UIAlertAction.Style.default) { [unowned self] _ in
-            self.performSegue(withIdentifier: "shop", sender: store)
-        })
-        
-        //adding an image
-        let image = Game.shared.image(for: store)
-        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
-        imageView.image = image
-        alert.view.addSubview(imageView)
-        
-        alert.title = store.name
-        present(alert, animated: true)
-    } */
-
 }

@@ -17,20 +17,14 @@ class Player {
     var coffee : Int
     var sleep : Int
     var grade : Double
+    var money : Int
     
-    //TODO: fix this
-    /**
-    var avgGrade: Int {
-        return lowestGradeGiven + inventory.filter { $0 is Textbook}.reduce(0, { max($0, ($1 as! Textbook).gradeBoost) })
-    }
- */
-    
-    init(name: String, homeworkGiven : Int, grade : Double, coffee : Int, sleep : Int) {
-        //super.init(name: name, homeworkGiven: homeworkCanDo, avgGradeGiven: avgGradeGiven, extraCredit: extraCredit)
+    init(name: String, homeworkGiven : Int, grade : Double, coffee : Int, sleep : Int, money : Int) {
         self.name = name
         self.homework = homeworkGiven
         self.grade = grade
         self.coffee = coffee
         self.sleep = sleep
+        self.money = money
     }
 }

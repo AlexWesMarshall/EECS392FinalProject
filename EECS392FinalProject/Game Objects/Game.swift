@@ -23,9 +23,9 @@ let GameStateNotification = Notification.Name("GameUpdated")
 
 protocol GameDelegate: class {
     func encounteredTeacher(teacher: Teacher)
-    func encounteredDean(dean: Dean)
     func canvasNotification(canvasNotification : CanvasNotification)
     func studyEncounter(study : Study)
+    func coffeeEncounter(coffeeShop : Starbucks, title : String?)
 }
 
 class Game {
@@ -34,16 +34,12 @@ class Game {
     var player: Player?
     var pointsOfInterest: [PointOfInterest] = []
     var lastPOI: PointOfInterest?
-    //var warps: [WarpZone] = []
-    //var reservoir: [CLLocationCoordinate2D] = []
     
     weak var delegate: GameDelegate?
     
     init() {
-        player = Player(name: "Frankum", homeworkGiven: 0, grade: 85, coffee: 1, sleep: 3)
+        player = Player(name: "Frankum", homeworkGiven: 0, grade: 85, coffee: 1, sleep: 3, money : 6)
         setupPOIs()
-        //setupWarps()
-        //setupResevoir()
     }
     
     private func setupPOIs() {
@@ -52,22 +48,18 @@ class Game {
     
     func visitedLocation(location: CLLocation) {
         guard let currentPOI = poiAtLocation(location: location) else { return }
-        
         if currentPOI.isRegenPoint {
             regenAdventurer()
         }
-        
         switch currentPOI.encounter {
-        case let dean as Dean:
-            delegate?.encounteredDean(dean: dean)
         case let teacher as Teacher:
             delegate?.encounteredTeacher(teacher: teacher)
         case let canvasNotification as CanvasNotification:
             delegate?.canvasNotification(canvasNotification: canvasNotification)
         case let study as Study:
             delegate?.studyEncounter(study : study)
-        /*case let store as Store:
-            delegate?.enteredStore(store: store) */
+        case let coffeeShop as Starbucks:
+            delegate?.coffeeEncounter(coffeeShop: coffeeShop, title : nil)
         default:
             break
         }
@@ -93,46 +85,22 @@ class Game {
     
     func regenAdventurer() {
         guard let player = player else { return }
-        
         player.sleep = 3
         player.isDefeated = false
     }
     
     func fight(teacher: Teacher) -> FightResult? {
         guard let player = player else { return nil }
-        
         defer { NotificationCenter.default.post(name: GameStateNotification, object: self) }
-        
-        //give the player a fighting chance to bring up their grade
-        //teacher.lowestGradeGiven -= player.lowestGradeGiven
         if teacher.lowestGradeGiven <= 0 {
-            //player.extraCredit += teacher.extraCredit
             return .PlayerWon
         }
-        
-        //player.homeworkGiven -= teacher.avgGrade
-        /**
-        if player.homeworkGiven > player.maxHomeworkCanDo {
-            player.isDefeated = true
-            return .PlayerLost
-        }
-        */
         return .Tie
     }
     
     func purchaseItem(item: Item) -> ItemResult? {
         guard let player = player else { return nil }
-        
         defer { NotificationCenter.default.post(name: GameStateNotification, object: self) }
-        /**
-        if player.extraCredit >= item.cost {
-            player.extraCredit -= item.cost
-            player.inventory.append(item)
-            return .Purchased
-        } else {
-            return .NotEnoughExtraCredit
-        }
-        */
         return .NotEnoughExtraCredit
     }
 }
@@ -143,8 +111,6 @@ extension Game {
         switch teacher.name {
         case Teacher.Ray.name:
             return UIImage(named: "Teacher")
-        case Dean.dean.name:
-            return UIImage(named: "Dean")
         default:
             return nil
         }

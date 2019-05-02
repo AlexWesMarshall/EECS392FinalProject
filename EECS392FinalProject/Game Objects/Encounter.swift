@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 protocol Encounter {
 }
 
@@ -16,6 +17,8 @@ extension Teacher: Encounter {
 extension CanvasNotification : Encounter{
 }
 
-/*extension Store: Encounter {
+extension Study : Encounter{
 }
-*/
+
+extension Starbucks : Encounter{
+}

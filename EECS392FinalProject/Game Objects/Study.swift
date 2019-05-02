@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Study : Encounter{
+class Study{
     var name : String
     
     init(name : String){

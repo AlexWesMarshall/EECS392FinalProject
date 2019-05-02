@@ -30,13 +30,14 @@ extension PointOfInterest {
     static let KSL = PointOfInterest(name: "Lib Lab", location : CLLocation(latitude: 41.507266, longitude: -81.609636), isRegenPoint : false, encounter : Study.KSL)
     static let Tink = PointOfInterest(name: "University Center", location : CLLocation(latitude: 41.508165, longitude: -81.608554), isRegenPoint : false, encounter : Study.Tink)
     static let Veale = PointOfInterest(name: "Gym", location : CLLocation(latitude: 41.500997, longitude: -81.606147), isRegenPoint : false)
-    static let EuclidStarbucks = PointOfInterest(name: "\"Energy\" Store", location : CLLocation(latitude: 41.508156, longitude: -81.605971), isRegenPoint : true)
+    static let EuclidStarbucks = PointOfInterest(name: "\"Energy\" Store", location : CLLocation(latitude: 41.508156, longitude: -81.605971), isRegenPoint : false, encounter : Starbucks.EuclidStarbucks)
     static let PBL = PointOfInterest(name: "Business Center", location : CLLocation(latitude: 41.509816, longitude: -81.607754), isRegenPoint : false, encounter : CanvasNotification.PBLNotification)
     static let Village = PointOfInterest(name: "Village", location : CLLocation(latitude: 41.512195, longitude: -81.603606), isRegenPoint : true)
+    static let Wade = PointOfInterest(name: "Wade", location : CLLocation(latitude: 41.512987, longitude: -81.605153), isRegenPoint : false)
+    static let Fribley = PointOfInterest(name: "Fribley", location : CLLocation(latitude: 41.501059, longitude: -81.602561), isRegenPoint : false)
 }
 
 extension PointOfInterest: MKAnnotation {
-    
     var coordinate: CLLocationCoordinate2D { return location.coordinate }
     var title: String? { return name }
 }
