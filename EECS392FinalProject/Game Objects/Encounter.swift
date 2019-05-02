@@ -13,6 +13,9 @@ protocol Encounter {
 extension Teacher: Encounter {
 }
 
+extension CanvasNotification : Encounter{
+}
+
 /*extension Store: Encounter {
 }
 */

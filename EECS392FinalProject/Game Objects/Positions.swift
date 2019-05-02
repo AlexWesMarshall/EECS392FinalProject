@@ -31,7 +31,7 @@ extension PointOfInterest {
     static let Tink = PointOfInterest(name: "University Center", location : CLLocation(latitude: 41.508165, longitude: -81.608554), isRegenPoint : false)
     static let Veale = PointOfInterest(name: "Gym", location : CLLocation(latitude: 41.500997, longitude: -81.606147), isRegenPoint : false)
     static let EuclidStarbucks = PointOfInterest(name: "\"Energy\" Store", location : CLLocation(latitude: 41.508156, longitude: -81.605971), isRegenPoint : true)
-    static let PBL = PointOfInterest(name: "Business Center", location : CLLocation(latitude: 41.509816, longitude: -81.607754), isRegenPoint : false, encounter : Teacher.Ray)
+    static let PBL = PointOfInterest(name: "Business Center", location : CLLocation(latitude: 41.509816, longitude: -81.607754), isRegenPoint : false, encounter : CanvasNotification.PBLNotification)
     static let Village = PointOfInterest(name: "Village", location : CLLocation(latitude: 41.512195, longitude: -81.603606), isRegenPoint : true)
 }
 

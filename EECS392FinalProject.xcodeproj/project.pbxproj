@@ -25,6 +25,7 @@
 		40754CA42270E4C100EEAF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40754CA22270E4C100EEAF6C /* LaunchScreen.storyboard */; };
 		40754CAF2270E4C100EEAF6C /* EECS392FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40754CAE2270E4C100EEAF6C /* EECS392FinalProjectTests.swift */; };
 		40754CBA2270E4C100EEAF6C /* EECS392FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40754CB92270E4C100EEAF6C /* EECS392FinalProjectUITests.swift */; };
+		40D9F40E227B457D00D0D231 /* CanvasNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F40D227B457D00D0D231 /* CanvasNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		40754CB52270E4C100EEAF6C /* EECS392FinalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EECS392FinalProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40754CB92270E4C100EEAF6C /* EECS392FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EECS392FinalProjectUITests.swift; sourceTree = "<group>"; };
 		40754CBB2270E4C100EEAF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40D9F40D227B457D00D0D231 /* CanvasNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				3F1F91392279095900BAF186 /* Game.swift */,
 				3F1F913B2279357800BAF186 /* Dean.swift */,
 				3F1F913D227935A000BAF186 /* Teacher.swift */,
+				40D9F40D227B457D00D0D231 /* CanvasNotification.swift */,
 				3F1F91412279366300BAF186 /* Textbook.swift */,
 				3F1F914B2279E63B00BAF186 /* Encounter.swift */,
 			);
@@ -314,6 +317,7 @@
 				3F1F913A2279095900BAF186 /* Game.swift in Sources */,
 				3F1F912922725E5000BAF186 /* PlayerViewController.swift in Sources */,
 				3F1F91422279366300BAF186 /* Textbook.swift in Sources */,
+				40D9F40E227B457D00D0D231 /* CanvasNotification.swift in Sources */,
 				3F1F912622725B5E00BAF186 /* MapViewController.swift in Sources */,
 				3F1F913C2279357800BAF186 /* Dean.swift in Sources */,
 				3F1F91362278AF9A00BAF186 /* Positions.swift in Sources */,

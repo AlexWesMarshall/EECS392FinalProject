@@ -71,6 +71,13 @@ extension MapViewController {
 
 extension MapViewController: GameDelegate {
     
+    func canvasNotification(canvasNotification: CanvasNotification) {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Close notification", style: UIAlertAction.Style.default))
+        alert.title = "A Canvas notification appeared. You have \(canvasNotification.homework + (Game.shared.player?.homework)!) new homeworks"
+        present(alert, animated: true)
+    }
+    
     func encounteredTeacher(teacher: Teacher) {
         showFight(teacher: teacher)
     }
@@ -102,11 +109,6 @@ extension MapViewController: GameDelegate {
         
         alert.title = "A wild \(teacher.name) appeared!"
         present(alert, animated: true) {}
-    }
-    
-    func canvasNotification(homework : Int) {
-        let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Close notification", style: UIAlertAction.Style.default))
     }
     
     func encounteredDean(dean: Dean) {

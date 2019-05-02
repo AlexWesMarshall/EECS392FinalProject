@@ -24,6 +24,7 @@ let GameStateNotification = Notification.Name("GameUpdated")
 protocol GameDelegate: class {
     func encounteredTeacher(teacher: Teacher)
     func encounteredDean(dean: Dean)
+    func canvasNotification(canvasNotification : CanvasNotification)
 }
 
 class Game {
@@ -147,6 +148,8 @@ class Game {
             delegate?.encounteredDean(dean: dean)
         case let teacher as Teacher:
             delegate?.encounteredTeacher(teacher: teacher)
+        case let canvasNotification as CanvasNotification:
+            delegate?.canvasNotification(canvasNotification: canvasNotification)
         /*case let store as Store:
             delegate?.enteredStore(store: store) */
         default:
