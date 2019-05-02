@@ -8,20 +8,29 @@
 
 import Foundation
 
-class Player: Teacher {
+class Player {
 
     var isDefeated = false
-    var maxHomeworkCanDo: Int = 0
+    var homework : Int = 0
     var inventory: [Item] = []
+    var name : String
+    var coffee : Int
+    var sleep : Int
+    var grade : Double
     
     //TODO: fix this
-    override var avgGrade: Int {
+    /**
+    var avgGrade: Int {
         return lowestGradeGiven + inventory.filter { $0 is Textbook}.reduce(0, { max($0, ($1 as! Textbook).gradeBoost) })
     }
+ */
     
-    override init(name: String, homeworkGiven homeworkCanDo: Int, avgGradeGiven: Int, extraCredit: Int = 1) {
-        super.init(name: name, homeworkGiven: homeworkCanDo, avgGradeGiven: avgGradeGiven, extraCredit: extraCredit)
-        
-        maxHomeworkCanDo = homeworkGiven
+    init(name: String, homeworkGiven : Int, grade : Double, coffee : Int, sleep : Int) {
+        //super.init(name: name, homeworkGiven: homeworkCanDo, avgGradeGiven: avgGradeGiven, extraCredit: extraCredit)
+        self.name = name
+        self.homework = homeworkGiven
+        self.grade = grade
+        self.coffee = coffee
+        self.sleep = sleep
     }
 }

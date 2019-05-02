@@ -42,25 +42,30 @@ class MapViewController: UIViewController {
 
 extension MapViewController {
     
-    private func heartsString() -> String {
-        guard let hp = Game.shared.player?.homeworkGiven else { return "☠️" }
+    private func coffeeString() -> String {
+        guard let coffee = Game.shared.player?.coffee else { return "☠️" }
         
-        let heartCount = hp / 2
+        let coffeeCount = coffee
         var string = ""
-        for _ in 1 ... heartCount {
-            string += "❤️"
+        for _ in 1 ... coffeeCount {
+            string += "☕"
         }
         return string
     }
     
-    private func goldString() -> String {
-        guard let extraCredit = Game.shared.player?.extraCredit else { return "" }
+    private func sleepString() -> String {
+        guard let sleep = Game.shared.player?.sleep else { return "" }
         
-        return "💰\(extraCredit)"
+        let sleepCount = sleep
+        var string = ""
+        for _ in 1 ... sleepCount {
+            string += "💤"
+        }
+        return string
     }
     
     fileprivate func renderGame() {
-        heartsLabel.text = heartsString() + "\n" + goldString()
+        heartsLabel.text = coffeeString() + "\n" + sleepString()
     }
 }
 
@@ -72,9 +77,9 @@ extension MapViewController: GameDelegate {
     
     func showFight(teacher: Teacher, subtitle: String = "Fight?") {
         let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Run", style: UIAlertAction.Style.cancel) { [unowned self] _ in
+        alert.addAction(UIAlertAction(title: "Run", style: UIAlertAction.Style.cancel) /*{ [unowned self] _ in
             self.showFight(teacher: teacher, subtitle: "I think you should really fight this.")
-        })
+        }*/)
         
         alert.addAction(UIAlertAction(title: "Fight", style: UIAlertAction.Style.default) { [unowned self] _ in
             guard let result = Game.shared.fight(teacher: teacher) else { return }
@@ -97,6 +102,11 @@ extension MapViewController: GameDelegate {
         
         alert.title = "A wild \(teacher.name) appeared!"
         present(alert, animated: true) {}
+    }
+    
+    func canvasNotification(homework : Int) {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Close notification", style: UIAlertAction.Style.default))
     }
     
     func encounteredDean(dean: Dean) {

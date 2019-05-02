@@ -38,7 +38,7 @@ class Game {
     weak var delegate: GameDelegate?
     
     init() {
-        player = Player(name: "Marshall", homeworkGiven: 10, avgGradeGiven: 90)
+        player = Player(name: "Frankum", homeworkGiven: 0, grade: 85, coffee: 2, sleep: 2)
         setupPOIs()
         //setupWarps()
         //setupResevoir()
@@ -175,7 +175,7 @@ class Game {
     func regenAdventurer() {
         guard let player = player else { return }
         
-        player.homeworkGiven = player.maxHomeworkCanDo
+        player.sleep = 3
         player.isDefeated = false
     }
     
@@ -185,18 +185,19 @@ class Game {
         defer { NotificationCenter.default.post(name: GameStateNotification, object: self) }
         
         //give the player a fighting chance to bring up their grade
-        teacher.lowestGradeGiven -= player.lowestGradeGiven
+        //teacher.lowestGradeGiven -= player.lowestGradeGiven
         if teacher.lowestGradeGiven <= 0 {
-            player.extraCredit += teacher.extraCredit
+            //player.extraCredit += teacher.extraCredit
             return .PlayerWon
         }
         
-        player.homeworkGiven -= teacher.avgGrade
+        //player.homeworkGiven -= teacher.avgGrade
+        /**
         if player.homeworkGiven > player.maxHomeworkCanDo {
             player.isDefeated = true
             return .PlayerLost
         }
-        
+        */
         return .Tie
     }
     
@@ -204,7 +205,7 @@ class Game {
         guard let player = player else { return nil }
         
         defer { NotificationCenter.default.post(name: GameStateNotification, object: self) }
-        
+        /**
         if player.extraCredit >= item.cost {
             player.extraCredit -= item.cost
             player.inventory.append(item)
@@ -212,7 +213,8 @@ class Game {
         } else {
             return .NotEnoughExtraCredit
         }
-        
+        */
+        return .NotEnoughExtraCredit
     }
 }
 
