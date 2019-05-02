@@ -13,6 +13,8 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var coffeeSleepLabel: UILabel!
+    var timer : Timer?
+    var timeLeft : Int = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +68,26 @@ extension MapViewController {
     fileprivate func renderGame() {
         coffeeSleepLabel.text = coffeeString() + "\n" + sleepString()
     }
+    
+    @objc func onTimerFires(){
+        timeLeft -= 1
+        if timeLeft <= 0{
+            timer?.invalidate()
+            timer = nil
+        }
+    }
 }
 
 extension MapViewController: GameDelegate {
+    
+    func turnInHomework(){
+        //Reset homework due
+        //Reset homework finished
+        //Create alert to turn in homework
+        //If the timer is nil give grade
+        //Else give grade with extra credit
+        //Update grade
+    }
     
     func coffeeEncounter(coffeeShop: Starbucks, title : String?) {
         let alert = UIAlertController()
@@ -98,6 +117,7 @@ extension MapViewController: GameDelegate {
         for _ in 0..<canvasNotification.homework{
             Game.shared.player?.inventory.append(Textbook.aiTextbook)
         }
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         present(alert, animated: true)
     }
     
