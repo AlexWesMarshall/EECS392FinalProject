@@ -12,7 +12,7 @@
 		3F1F91322275391100BAF186 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F91312275391100BAF186 /* Player.swift */; };
 		3F1F9134227748C000BAF186 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F9133227748C000BAF186 /* Item.swift */; };
 		3F1F91362278AF9A00BAF186 /* Positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F91352278AF9A00BAF186 /* Positions.swift */; };
-		3F1F91382278B3B900BAF186 /* Game Test.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3F1F91372278B3B900BAF186 /* Game Test.gpx */; };
+		3F1F91382278B3B900BAF186 /* FinalProjectGameTest.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3F1F91372278B3B900BAF186 /* FinalProjectGameTest.gpx */; };
 		3F1F913A2279095900BAF186 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F91392279095900BAF186 /* Game.swift */; };
 		3F1F913C2279357800BAF186 /* Dean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F913B2279357800BAF186 /* Dean.swift */; };
 		3F1F913E227935A000BAF186 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F913D227935A000BAF186 /* Teacher.swift */; };
@@ -50,7 +50,7 @@
 		3F1F91312275391100BAF186 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3F1F9133227748C000BAF186 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3F1F91352278AF9A00BAF186 /* Positions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Positions.swift; sourceTree = "<group>"; };
-		3F1F91372278B3B900BAF186 /* Game Test.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Game Test.gpx"; sourceTree = "<group>"; };
+		3F1F91372278B3B900BAF186 /* FinalProjectGameTest.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FinalProjectGameTest.gpx; sourceTree = "<group>"; };
 		3F1F91392279095900BAF186 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3F1F913B2279357800BAF186 /* Dean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dean.swift; sourceTree = "<group>"; };
 		3F1F913D227935A000BAF186 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				40754C992270E4BE00EEAF6C /* AppDelegate.swift */,
 				3F1F912722725B6300BAF186 /* ViewControllers */,
 				3F1F912C22725EA400BAF186 /* Game Objects */,
-				3F1F91372278B3B900BAF186 /* Game Test.gpx */,
+				3F1F91372278B3B900BAF186 /* FinalProjectGameTest.gpx */,
 				40754CA02270E4C100EEAF6C /* Assets.xcassets */,
 				40754CA22270E4C100EEAF6C /* LaunchScreen.storyboard */,
 				40754CA52270E4C100EEAF6C /* Info.plist */,
@@ -278,7 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F1F91382278B3B900BAF186 /* Game Test.gpx in Resources */,
+				3F1F91382278B3B900BAF186 /* FinalProjectGameTest.gpx in Resources */,
 				40754CA42270E4C100EEAF6C /* LaunchScreen.storyboard in Resources */,
 				40754CA12270E4C100EEAF6C /* Assets.xcassets in Resources */,
 				40754C9F2270E4BE00EEAF6C /* Main.storyboard in Resources */,

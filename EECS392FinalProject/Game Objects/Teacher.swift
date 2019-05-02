@@ -26,5 +26,5 @@ class Teacher {
 }
 
 extension Teacher {
-    static let Ray = Teacher(name: "Drew Meyer", homeworkGiven: 3, avgGradeGiven: 30, extraCredit: 10)
+    static let Ray = Teacher(name: "Soumya Ray", homeworkGiven: 2, avgGradeGiven: 30, extraCredit: 10)
 }

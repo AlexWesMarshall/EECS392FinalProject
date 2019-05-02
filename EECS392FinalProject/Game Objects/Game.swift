@@ -33,7 +33,7 @@ class Game {
     var pointsOfInterest: [PointOfInterest] = []
     var lastPOI: PointOfInterest?
     //var warps: [WarpZone] = []
-    var reservoir: [CLLocationCoordinate2D] = []
+    //var reservoir: [CLLocationCoordinate2D] = []
     
     weak var delegate: GameDelegate?
     
@@ -41,11 +41,11 @@ class Game {
         player = Player(name: "Marshall", homeworkGiven: 10, avgGradeGiven: 90)
         setupPOIs()
         //setupWarps()
-        setupResevoir()
+        //setupResevoir()
     }
     
     private func setupPOIs() {
-        pointsOfInterest = [.Balto, .BoatHouse, .Castle, .Cloisters, .Hamilton, .Obelisk, .Met, .StrawberryFields, .StatueOfLiberty, .TavernOnGreen, .TimesSquare, .Zoo]
+        pointsOfInterest = [.Sears, .KSL, .Tink, .Veale, .EuclidStarbucks, .PBL, .Village]
     }
     
     /*private func setupWarps() {
@@ -71,7 +71,7 @@ class Game {
                  WarpZone(latitude: 40.701789, longitude: -74.013004, color: #colorLiteral(red: 0.9333333333, green: 0.2078431373, blue: 0.1803921569, alpha: 1))
         ]
     } */
-    
+    /**
     private func setupResevoir() {
         reservoir = [
             CLLocationCoordinate2D(latitude: 40.78884, longitude: -73.95857),
@@ -133,6 +133,7 @@ class Game {
             CLLocationCoordinate2D(latitude: 40.78867, longitude: -73.95895)
         ]
     }
+ */
     
     func visitedLocation(location: CLLocation) {
         guard let currentPOI = poiAtLocation(location: location) else { return }
