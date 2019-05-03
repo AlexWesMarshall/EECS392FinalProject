@@ -14,29 +14,27 @@ class PointOfInterest: NSObject { //has to be NSObject to use with MKAnnotation 
     
     let location: CLLocation
     let name: String
-    let isRegenPoint: Bool
     let encounter: Encounter?
     
-    init(name: String, location: CLLocation, isRegenPoint: Bool, encounter: Encounter? = nil) {
+    init(name: String, location: CLLocation, encounter: Encounter? = nil) {
         self.name = name
         self.location = location
-        self.isRegenPoint = isRegenPoint
         self.encounter = encounter
     }
 }
 
 extension PointOfInterest {
-    static let Sears = PointOfInterest(name: "Sears", location : CLLocation(latitude: 41.502789, longitude: -81.608062), isRegenPoint : false, encounter : Homework.Sears)
-    static let KSL = PointOfInterest(name: "Lib Lab", location : CLLocation(latitude: 41.507266, longitude: -81.609636), isRegenPoint : false, encounter : Study.KSL)
-    static let Tink = PointOfInterest(name: "University Center", location : CLLocation(latitude: 41.508165, longitude: -81.608554), isRegenPoint : false, encounter : Study.Tink)
-    static let Veale = PointOfInterest(name: "Gym", location : CLLocation(latitude: 41.500997, longitude: -81.606147), isRegenPoint : false)
-    static let EuclidStarbucks = PointOfInterest(name: "\"Energy\" Store", location : CLLocation(latitude: 41.508156, longitude: -81.605971), isRegenPoint : false, encounter : Starbucks.EuclidStarbucks)
-    static let PBL = PointOfInterest(name: "Business Center", location : CLLocation(latitude: 41.509816, longitude: -81.607754), isRegenPoint : false, encounter : CanvasNotification.PBLNotification)
-    static let Village = PointOfInterest(name: "Village", location : CLLocation(latitude: 41.512195, longitude: -81.603606), isRegenPoint : true)
-    static let WadeQ = PointOfInterest(name: "Wade Quest Start", location : CLLocation(latitude: 41.512987, longitude: -81.605153), isRegenPoint : false)
-    static let Wade = PointOfInterest(name: "Wade", location : CLLocation(latitude: 41.512987, longitude: -81.605153), isRegenPoint : false, encounter : Quest.wadeQuest)
-    static let FribleyQ = PointOfInterest(name: "Wade Quest End", location : CLLocation(latitude: 41.501288, longitude: -81.602810), isRegenPoint : false)
-    static let Fribley = PointOfInterest(name: "Fribley", location : CLLocation(latitude: 41.501288, longitude: -81.602810), isRegenPoint : false, encounter : Quest.wadeQuest)
+    static let Sears = PointOfInterest(name: "Sears", location : CLLocation(latitude: 41.502789, longitude: -81.608062), encounter : Homework.Sears)
+    static let KSL = PointOfInterest(name: "Lib Lab", location : CLLocation(latitude: 41.507266, longitude: -81.609636), encounter : Study.KSL)
+    static let Tink = PointOfInterest(name: "University Center", location : CLLocation(latitude: 41.508165, longitude: -81.608554), encounter : Study.Tink)
+    static let Veale = PointOfInterest(name: "Gym", location : CLLocation(latitude: 41.500997, longitude: -81.606147))
+    static let EuclidStarbucks = PointOfInterest(name: "\"Energy\" Store", location : CLLocation(latitude: 41.508156, longitude: -81.605971), encounter : Starbucks.EuclidStarbucks)
+    static let PBL = PointOfInterest(name: "Business Center", location : CLLocation(latitude: 41.509816, longitude: -81.607754), encounter : CanvasNotification.PBLNotification)
+    static let Village = PointOfInterest(name: "Village", location : CLLocation(latitude: 41.512195, longitude: -81.603606))
+    static let WadeQ = PointOfInterest(name: "Wade Quest Start", location : CLLocation(latitude: 41.512987, longitude: -81.605153))
+    static let Wade = PointOfInterest(name: "Wade", location : CLLocation(latitude: 41.512987, longitude: -81.605153), encounter : Quest.wadeQuest)
+    static let FribleyQ = PointOfInterest(name: "Wade Quest End", location : CLLocation(latitude: 41.501288, longitude: -81.602810))
+    static let Fribley = PointOfInterest(name: "Fribley", location : CLLocation(latitude: 41.501288, longitude: -81.602810), encounter : Quest.wadeQuest)
 }
 
 extension PointOfInterest: MKAnnotation {

@@ -178,9 +178,6 @@ extension MapViewController: GameDelegate {
         alert.addAction(UIAlertAction(title: "Close notification", style: UIAlertAction.Style.default))
         alert.title = "A Canvas notification appeared. You have \(canvasNotification.homework + (Game.shared.player?.homeworkDue)!) new homeworks"
         Game.shared.player?.homeworkDue += canvasNotification.homework
-        for _ in 0..<canvasNotification.homework{
-            Game.shared.player?.inventory.append(Textbook.aiTextbook)
-        }
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         present(alert, animated: true)
     }
@@ -200,35 +197,5 @@ extension MapViewController: GameDelegate {
         })
         alert.addAction(UIAlertAction(title: "Too cool for school 😎", style: UIAlertAction.Style.cancel))
         present(alert, animated: true)
-    }
-    
-    func encounteredTeacher(teacher: Teacher) {
-        showFight(teacher: teacher)
-    }
-    
-    func showFight(teacher: Teacher, subtitle: String = "Fight?") {
-        let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Run", style: UIAlertAction.Style.cancel))
-        alert.addAction(UIAlertAction(title: "Fight", style: UIAlertAction.Style.default) { [unowned self] _ in
-            guard let result = Game.shared.fight(teacher: teacher) else { return }
-            
-            switch result {
-            case .PlayerLost:
-                print("loss!")
-            case .PlayerWon:
-                print("win!")
-            case .Tie:
-                self.showFight(teacher: teacher, subtitle: "A good row, but you are both still in the fight!")
-            }
-        })
-        
-        //adding an image
-        let image = Game.shared.image(for: teacher)
-        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
-        imageView.image = image
-        alert.view.addSubview(imageView)
-        
-        alert.title = "A wild \(teacher.name) appeared!"
-        present(alert, animated: true) {}
     }
 }

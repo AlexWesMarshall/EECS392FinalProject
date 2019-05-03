@@ -11,18 +11,9 @@ import CoreLocation
 
 let ENCOUNTER_RADIUS: CLLocationDistance = 10 //meters
 
-enum FightResult {
-    case PlayerWon, PlayerLost, Tie
-}
-
-enum ItemResult {
-    case Purchased, NotEnoughExtraCredit
-}
-
 let GameStateNotification = Notification.Name("GameUpdated")
 
 protocol GameDelegate: class {
-    func encounteredTeacher(teacher: Teacher)
     func canvasNotification(canvasNotification : CanvasNotification)
     func studyEncounter(study : Study)
     func coffeeEncounter(coffeeShop : Starbucks, title : String?)
@@ -51,10 +42,7 @@ class Game {
     
     func visitedLocation(location: CLLocation) {
         guard let currentPOI = poiAtLocation(location: location) else { return }
-        print("Searching")
         switch currentPOI.encounter {
-        case let teacher as Teacher:
-            delegate?.encounteredTeacher(teacher: teacher)
         case let canvasNotification as CanvasNotification:
             delegate?.canvasNotification(canvasNotification: canvasNotification)
         case let study as Study:
@@ -67,12 +55,8 @@ class Game {
             if(currentPOI.location.distance(from: quest.startLocation.location) < 0.001){
                 delegate?.startQuest(quest : quest)
             }
-            if(currentPOI.location.distance(from: quest.endLocation.location) < 0.005){
-                print("ending quest")
+            else if(currentPOI.location.distance(from: quest.endLocation.location) < 0.005){
                 delegate?.endQuest(quest : quest)
-            }
-            else{
-                print("False alarm")
             }
         default:
             break
@@ -95,47 +79,5 @@ class Game {
         }
         lastPOI = nil
         return nil
-    }
-    
-    func regenAdventurer() {
-        guard let player = player else { return }
-        player.sleep = 3
-        player.isDefeated = false
-    }
-    
-    func fight(teacher: Teacher) -> FightResult? {
-        guard let player = player else { return nil }
-        defer { NotificationCenter.default.post(name: GameStateNotification, object: self) }
-        if teacher.lowestGradeGiven <= 0 {
-            return .PlayerWon
-        }
-        return .Tie
-    }
-    
-    func purchaseItem(item: Item) -> ItemResult? {
-        guard let player = player else { return nil }
-        defer { NotificationCenter.default.post(name: GameStateNotification, object: self) }
-        return .NotEnoughExtraCredit
-    }
-}
-
-extension Game {
-    
-    func image(for teacher: Teacher) -> UIImage? {
-        switch teacher.name {
-        case Teacher.Ray.name:
-            return UIImage(named: "Teacher")
-        default:
-            return nil
-        }
-    }
-    
-    func image(for item: Item) -> UIImage? {
-        switch item.name {
-        case Textbook.aiTextbook.name:
-            return UIImage(named: "Textbook")
-        default:
-            return nil
-        }
     }
 }

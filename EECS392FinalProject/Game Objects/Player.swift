@@ -10,10 +10,8 @@ import Foundation
 
 class Player {
 
-    var isDefeated = false
     var homeworkDue : Int = 0
     var homeworkComplete : Int = 0
-    var inventory: [Item] = []
     var name : String
     var coffee : Int
     var sleep : Int
