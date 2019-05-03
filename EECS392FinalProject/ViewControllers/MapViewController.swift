@@ -15,7 +15,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var coffeeSleepLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     var timer : Timer?
-    var timeLeft : Int = 60
+    var timeLeft : Int = 80
+    let INIT_TIME : Int = 80
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +87,7 @@ extension MapViewController {
         if timeLeft <= 0{
             timer?.invalidate()
             timer = nil
+            timeLeft = INIT_TIME
             turnInHomework()
         }
         renderTimeLabel()
@@ -95,19 +97,27 @@ extension MapViewController {
 extension MapViewController: GameDelegate {
     
     func turnInHomework(){
-        Game.shared.player?.homeworkDue = 0
-        Game.shared.player?.homeworkComplete = 0
         let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Time's up! Turn in homework.", style: UIAlertAction.Style.default))
         if(timer == nil){
             Game.shared.player?.grade = Double.random(in: 60..<80)
+            alert.addAction(UIAlertAction(title: "Times up! Turn in homework.", style: UIAlertAction.Style.default))
+            Game.shared.player?.homeworkDue = 0
+            Game.shared.player?.homeworkComplete = 0
         }
-        else {
+        else if (Game.shared.player?.homeworkDue ?? 1 <= 0) {
             Game.shared.player?.grade = Double.random(in: 70..<80) + Double.random(in: 1..<20)
+            alert.addAction(UIAlertAction(title: "Turn in homework early.", style: UIAlertAction.Style.default))
+            alert.addAction(UIAlertAction(title: "I need more time!", style: UIAlertAction.Style.cancel))
+            timer?.invalidate()
+            timer = nil
+            timeLeft = INIT_TIME
+            Game.shared.player?.homeworkDue = 0
+            Game.shared.player?.homeworkComplete = 0
         }
-        timer?.invalidate()
-        timer = nil
-        timeLeft = 60
+        else{
+            alert.addAction(UIAlertAction(title: "Leave", style: UIAlertAction.Style.default))
+            alert.title = "I still need to finish my work 😟"
+        }
         renderGame()
         present(alert, animated: true)
     }
