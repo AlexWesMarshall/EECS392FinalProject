@@ -29,6 +29,41 @@ class MapViewController: UIViewController {
         
         Game.shared.delegate = self
         
+        var pointsOfInterest = [MKAnnotation]()
+        let starbs = MKPointAnnotation()
+        starbs.coordinate = PointOfInterest.EuclidStarbucks.coordinate
+        pointsOfInterest.append(starbs)
+        
+        let wade = MKPointAnnotation()
+        wade.coordinate = PointOfInterest.Wade.coordinate
+        pointsOfInterest.append(wade)
+        
+        let PBL = MKPointAnnotation()
+        PBL.coordinate = PointOfInterest.PBL.coordinate
+        pointsOfInterest.append(PBL)
+        
+        let Sears = MKPointAnnotation()
+        Sears.coordinate = PointOfInterest.Sears.coordinate
+        pointsOfInterest.append(Sears)
+        
+        let KSL = MKPointAnnotation()
+        KSL.coordinate = PointOfInterest.KSL.coordinate
+        pointsOfInterest.append(KSL)
+        
+        let Veale = MKPointAnnotation()
+        Veale.coordinate = PointOfInterest.Veale.coordinate
+        pointsOfInterest.append(Veale)
+        
+        let Village = MKPointAnnotation()
+        Village.coordinate = PointOfInterest.Village.coordinate
+        pointsOfInterest.append(Village)
+        
+        let Fribley = MKPointAnnotation()
+        Fribley.coordinate = PointOfInterest.Fribley.coordinate
+        pointsOfInterest.append(Fribley)
+        
+        mapView.addAnnotations(pointsOfInterest)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(gameUpdated(notification:)), name: GameStateNotification, object: nil)
     }
 
@@ -41,6 +76,26 @@ class MapViewController: UIViewController {
     @objc func gameUpdated(notification: Notification) {
         renderGame()
     }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func dropPinZoomIn(placemark: MKPlacemark){
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        mapView.addAnnotation(annotation)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else { return nil }
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: "pin") as? MKPinAnnotationView
+        if pinView == nil { pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin") }
+        pinView?.canShowCallout = true
+        
+        return pinView
+    }
+    
 }
 
 extension MapViewController {
