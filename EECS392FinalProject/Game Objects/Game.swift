@@ -26,6 +26,7 @@ protocol GameDelegate: class {
     func canvasNotification(canvasNotification : CanvasNotification)
     func studyEncounter(study : Study)
     func coffeeEncounter(coffeeShop : Starbucks, title : String?)
+    func turnInHomework()
 }
 
 class Game {
@@ -60,6 +61,8 @@ class Game {
             delegate?.studyEncounter(study : study)
         case let coffeeShop as Starbucks:
             delegate?.coffeeEncounter(coffeeShop: coffeeShop, title : nil)
+        case _ as Homework:
+            delegate?.turnInHomework()
         default:
             break
         }

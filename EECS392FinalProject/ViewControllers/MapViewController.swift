@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var coffeeSleepLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     var timer : Timer?
     var timeLeft : Int = 60
     
@@ -67,26 +68,48 @@ extension MapViewController {
     
     fileprivate func renderGame() {
         coffeeSleepLabel.text = coffeeString() + "\n" + sleepString()
+        renderTimeLabel()
+    }
+    
+    fileprivate func renderTimeLabel(){
+        if(timer == nil){
+            timerLabel.text = "No homework due yet."
+        }
+        else{
+            timerLabel.text = "Due in: \(timeLeft)"
+        }
     }
     
     @objc func onTimerFires(){
         timeLeft -= 1
+        
         if timeLeft <= 0{
             timer?.invalidate()
             timer = nil
+            turnInHomework()
         }
+        renderTimeLabel()
     }
 }
 
 extension MapViewController: GameDelegate {
     
     func turnInHomework(){
-        //Reset homework due
-        //Reset homework finished
-        //Create alert to turn in homework
-        //If the timer is nil give grade
-        //Else give grade with extra credit
-        //Update grade
+        Game.shared.player?.homeworkDue = 0
+        Game.shared.player?.homeworkComplete = 0
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Time's up! Turn in homework.", style: UIAlertAction.Style.default))
+        if(timer == nil){
+            Game.shared.player?.grade = Double.random(in: 60..<80)
+        }
+        else {
+            Game.shared.player?.grade = Double.random(in: 70..<80) + Double.random(in: 1..<20)
+        }
+        timer?.invalidate()
+        timer = nil
+        timeLeft = 60
+        renderGame()
+        present(alert, animated: true)
     }
     
     func coffeeEncounter(coffeeShop: Starbucks, title : String?) {

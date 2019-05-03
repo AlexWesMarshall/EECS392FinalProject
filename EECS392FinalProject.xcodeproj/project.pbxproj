@@ -27,6 +27,7 @@
 		40D9F40E227B457D00D0D231 /* CanvasNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F40D227B457D00D0D231 /* CanvasNotification.swift */; };
 		40D9F410227B67E300D0D231 /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F40F227B67E300D0D231 /* Study.swift */; };
 		40D9F412227B763400D0D231 /* Starbucks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F411227B763400D0D231 /* Starbucks.swift */; };
+		40D9F414227BBB0B00D0D231 /* Homework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F413227BBB0B00D0D231 /* Homework.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		40D9F40D227B457D00D0D231 /* CanvasNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasNotification.swift; sourceTree = "<group>"; };
 		40D9F40F227B67E300D0D231 /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
 		40D9F411227B763400D0D231 /* Starbucks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starbucks.swift; sourceTree = "<group>"; };
+		40D9F413227BBB0B00D0D231 /* Homework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				3F1F914B2279E63B00BAF186 /* Encounter.swift */,
 				40D9F40F227B67E300D0D231 /* Study.swift */,
 				40D9F411227B763400D0D231 /* Starbucks.swift */,
+				40D9F413227BBB0B00D0D231 /* Homework.swift */,
 			);
 			path = "Game Objects";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				3F1F912922725E5000BAF186 /* PlayerViewController.swift in Sources */,
 				3F1F91422279366300BAF186 /* Textbook.swift in Sources */,
 				40D9F40E227B457D00D0D231 /* CanvasNotification.swift in Sources */,
+				40D9F414227BBB0B00D0D231 /* Homework.swift in Sources */,
 				3F1F912622725B5E00BAF186 /* MapViewController.swift in Sources */,
 				3F1F91362278AF9A00BAF186 /* Positions.swift in Sources */,
 				40754C9A2270E4BE00EEAF6C /* AppDelegate.swift in Sources */,

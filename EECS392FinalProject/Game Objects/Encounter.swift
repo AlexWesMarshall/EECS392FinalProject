@@ -22,3 +22,6 @@ extension Study : Encounter{
 
 extension Starbucks : Encounter{
 }
+
+extension Homework : Encounter{
+}
