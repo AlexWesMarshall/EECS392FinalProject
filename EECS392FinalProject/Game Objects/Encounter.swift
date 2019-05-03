@@ -11,9 +11,6 @@ import Foundation
 protocol Encounter {
 }
 
-extension Teacher: Encounter {
-}
-
 extension CanvasNotification : Encounter{
 }
 
