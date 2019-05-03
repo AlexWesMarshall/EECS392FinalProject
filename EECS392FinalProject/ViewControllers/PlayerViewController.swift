@@ -25,8 +25,17 @@ class PlayerViewController: UIViewController {
         homeworkDueLabel.text = "Homework Assignments Due: \(Game.shared.player?.homeworkDue ?? 0)"
         homeworkFinishedLabel.text = "Homework Assignments Finished: \(Game.shared.player?.homeworkComplete ?? 0)"
         moneyLabel.text = "Money: \(Game.shared.player?.money ?? 0)"
-        gradeLabel.text = "Grade = \(Game.shared.player?.grade ?? 70)"
+        let truncatedGrade = Game.shared.player?.grade.truncate(places: 2)
+        gradeLabel.text = "Grade: \(truncatedGrade ?? 70.00)"
         questLabel.text = "Quest: \(Game.shared.player?.quest?.description ?? "")"
+    }
+}
+
+extension Double
+{
+    func truncate(places : Int)-> Double
+    {
+        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
     }
 }
 
