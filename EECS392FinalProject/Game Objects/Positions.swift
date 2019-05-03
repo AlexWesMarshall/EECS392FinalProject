@@ -23,6 +23,7 @@ class PointOfInterest: NSObject { //has to be NSObject to use with MKAnnotation 
     }
 }
 
+//Hard coded points of interest are located. For more encounters, add here
 extension PointOfInterest {
     static let Sears = PointOfInterest(name: "Sears", location : CLLocation(latitude: 41.502789, longitude: -81.608062), encounter : Homework.Sears)
     static let KSL = PointOfInterest(name: "Lib Lab", location : CLLocation(latitude: 41.507266, longitude: -81.609636), encounter : Study.KSL)

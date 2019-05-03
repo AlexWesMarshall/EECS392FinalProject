@@ -5,6 +5,9 @@
 //  Created by Alexander Marshall on 5/2/19.
 //  Copyright © 2019 Alexander Marshall. All rights reserved.
 //
+//Details where a quest can be started, where the quest ends,
+//a description of the quest, and a description when the quest is completed
+//To complete a quest, players must walk from the startLocation to the endLocation (functionality in MapViewController)
 
 import Foundation
 

@@ -13,6 +13,7 @@ let ENCOUNTER_RADIUS: CLLocationDistance = 10 //meters
 
 let GameStateNotification = Notification.Name("GameUpdated")
 
+//GameDelegate for running encounters in MapViewController
 protocol GameDelegate: class {
     func canvasNotification(canvasNotification : CanvasNotification)
     func studyEncounter(study : Study)
@@ -24,7 +25,7 @@ protocol GameDelegate: class {
 
 class Game {
     
-    static let shared = Game()
+    static let shared = Game() //Shared instance of the game to keep track of the player
     var player: Player?
     var pointsOfInterest: [PointOfInterest] = []
     var lastPOI: PointOfInterest?
@@ -36,12 +37,16 @@ class Game {
         setupPOIs()
     }
     
+    //Add the names of the POIs in Positions
     private func setupPOIs() {
         pointsOfInterest = [.Sears, .KSL, .Tink, .Veale, .EuclidStarbucks, .PBL, .Village, .Wade, .Fribley]
     }
     
+    //Checks if the current location is an encounter location
+    //Switch statement determines the specific type of encounter
     func visitedLocation(location: CLLocation) {
         guard let currentPOI = poiAtLocation(location: location) else { return }
+        
         switch currentPOI.encounter {
         case let canvasNotification as CanvasNotification:
             delegate?.canvasNotification(canvasNotification: canvasNotification)
@@ -52,9 +57,11 @@ class Game {
         case _ as Homework:
             delegate?.turnInHomework()
         case let quest as Quest:
+            //If the current location is close to a quest start CLLocation
             if(currentPOI.location.distance(from: quest.startLocation.location) < 0.001){
                 delegate?.startQuest(quest : quest)
             }
+            //Else if the current location is close to a quest end CLLocation
             else if(currentPOI.location.distance(from: quest.endLocation.location) < 0.005){
                 delegate?.endQuest(quest : quest)
             }
@@ -63,6 +70,7 @@ class Game {
         }
     }
     
+    //Turns the current location into a PointOfInterest
     func poiAtLocation(location: CLLocation) -> PointOfInterest? {
         for point in pointsOfInterest {
             let center = point.location

@@ -10,12 +10,9 @@
 		3F1F912622725B5E00BAF186 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F912522725B5E00BAF186 /* MapViewController.swift */; };
 		3F1F912922725E5000BAF186 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F912822725E5000BAF186 /* PlayerViewController.swift */; };
 		3F1F91322275391100BAF186 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F91312275391100BAF186 /* Player.swift */; };
-		3F1F9134227748C000BAF186 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F9133227748C000BAF186 /* Item.swift */; };
 		3F1F91362278AF9A00BAF186 /* Positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F91352278AF9A00BAF186 /* Positions.swift */; };
 		3F1F91382278B3B900BAF186 /* FinalProjectGameTest.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3F1F91372278B3B900BAF186 /* FinalProjectGameTest.gpx */; };
 		3F1F913A2279095900BAF186 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F91392279095900BAF186 /* Game.swift */; };
-		3F1F913E227935A000BAF186 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F913D227935A000BAF186 /* Teacher.swift */; };
-		3F1F91422279366300BAF186 /* Textbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F91412279366300BAF186 /* Textbook.swift */; };
 		3F1F9148227946B900BAF186 /* LocationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F9147227946B900BAF186 /* LocationListener.swift */; };
 		3F1F914C2279E63B00BAF186 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F914B2279E63B00BAF186 /* Encounter.swift */; };
 		40754C9A2270E4BE00EEAF6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40754C992270E4BE00EEAF6C /* AppDelegate.swift */; };
@@ -52,12 +49,9 @@
 		3F1F912522725B5E00BAF186 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3F1F912822725E5000BAF186 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		3F1F91312275391100BAF186 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		3F1F9133227748C000BAF186 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3F1F91352278AF9A00BAF186 /* Positions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Positions.swift; sourceTree = "<group>"; };
 		3F1F91372278B3B900BAF186 /* FinalProjectGameTest.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FinalProjectGameTest.gpx; sourceTree = "<group>"; };
 		3F1F91392279095900BAF186 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		3F1F913D227935A000BAF186 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
-		3F1F91412279366300BAF186 /* Textbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textbook.swift; sourceTree = "<group>"; };
 		3F1F9147227946B900BAF186 /* LocationListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationListener.swift; path = ../LocationListener.swift; sourceTree = "<group>"; };
 		3F1F914B2279E63B00BAF186 /* Encounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
 		40754C962270E4BE00EEAF6C /* EECS392FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EECS392FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,12 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				3F1F91312275391100BAF186 /* Player.swift */,
-				3F1F9133227748C000BAF186 /* Item.swift */,
 				3F1F91352278AF9A00BAF186 /* Positions.swift */,
 				3F1F91392279095900BAF186 /* Game.swift */,
-				3F1F913D227935A000BAF186 /* Teacher.swift */,
 				40D9F40D227B457D00D0D231 /* CanvasNotification.swift */,
-				3F1F91412279366300BAF186 /* Textbook.swift */,
 				3F1F914B2279E63B00BAF186 /* Encounter.swift */,
 				40D9F40F227B67E300D0D231 /* Study.swift */,
 				40D9F411227B763400D0D231 /* Starbucks.swift */,
@@ -320,15 +311,12 @@
 			files = (
 				3F1F9148227946B900BAF186 /* LocationListener.swift in Sources */,
 				3F1F914C2279E63B00BAF186 /* Encounter.swift in Sources */,
-				3F1F913E227935A000BAF186 /* Teacher.swift in Sources */,
 				40D9F410227B67E300D0D231 /* Study.swift in Sources */,
 				40D9F412227B763400D0D231 /* Starbucks.swift in Sources */,
-				3F1F9134227748C000BAF186 /* Item.swift in Sources */,
 				3F1F91322275391100BAF186 /* Player.swift in Sources */,
 				3F1F913A2279095900BAF186 /* Game.swift in Sources */,
 				40D9F416227BC4F800D0D231 /* Quest.swift in Sources */,
 				3F1F912922725E5000BAF186 /* PlayerViewController.swift in Sources */,
-				3F1F91422279366300BAF186 /* Textbook.swift in Sources */,
 				40D9F40E227B457D00D0D231 /* CanvasNotification.swift in Sources */,
 				40D9F414227BBB0B00D0D231 /* Homework.swift in Sources */,
 				3F1F912622725B5E00BAF186 /* MapViewController.swift in Sources */,

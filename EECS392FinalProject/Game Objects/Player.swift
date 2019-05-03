@@ -5,6 +5,7 @@
 //  Created by Samantha Frankum on 4/27/19.
 //  Copyright © 2019 Alexander Marshall. All rights reserved.
 //
+// Player class that stores information for playing the game
 
 import Foundation
 

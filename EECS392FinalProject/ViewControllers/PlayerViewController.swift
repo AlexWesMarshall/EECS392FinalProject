@@ -18,6 +18,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var questLabel: UILabel!
     @IBOutlet weak var gradeLabel: UILabel!
     
+    //Updates the players inventory
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         avatarImageView.image = UIImage(named: "Player")
@@ -31,6 +32,7 @@ class PlayerViewController: UIViewController {
     }
 }
 
+//Extra func to truncate the grade to two decimal places
 extension Double
 {
     func truncate(places : Int)-> Double
