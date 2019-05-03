@@ -15,13 +15,13 @@ class MapViewController: UIViewController {
     @IBOutlet weak var coffeeSleepLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     var timer : Timer?
-    var timeLeft : Int = 80
-    let INIT_TIME : Int = 80
+    var timeLeft : Int = 90
+    let INIT_TIME : Int = 90
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.508702, longitude: -81.606348), span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
+        let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.508702, longitude: -81.606348), span: MKCoordinateSpan(latitudeDelta: 0.007, longitudeDelta: 0.007))
         mapView.region = initialRegion
         mapView.showsUserLocation = true
         mapView.showsCompass = true
@@ -95,6 +95,37 @@ extension MapViewController {
 }
 
 extension MapViewController: GameDelegate {
+    
+    func startQuest(quest: Quest) {
+        if(Game.shared.player?.quest == nil){
+            let alert = UIAlertController()
+            alert.addAction(UIAlertAction(title: "Accept quest", style: UIAlertAction.Style.default){ [unowned self] _ in
+                Game.shared.player?.quest = quest
+                self.renderGame()
+            })
+            alert.addAction(UIAlertAction(title: "Decline quest", style: UIAlertAction.Style.cancel))
+            alert.title = quest.description
+            present(alert, animated: true)
+        }
+    }
+    
+    func endQuest(quest: Quest) {
+        print("Ending quest")
+        if(Game.shared.player?.quest != nil){
+            let alert = UIAlertController()
+            alert.addAction(UIAlertAction(title: "Leave", style: UIAlertAction.Style.default) { [unowned self] _ in
+                Game.shared.player?.quest = nil
+                self.applyQuestReward(quest: quest)
+            })
+            alert.title = quest.completedDescription
+            present(alert, animated: true)
+        }
+    }
+    
+    func applyQuestReward(quest : Quest){
+        Game.shared.player?.money += quest.reward
+    }
+    
     
     func turnInHomework(){
         let alert = UIAlertController()

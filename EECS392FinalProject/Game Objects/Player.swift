@@ -19,6 +19,7 @@ class Player {
     var sleep : Int
     var grade : Double
     var money : Int
+    var quest : Quest?
     
     init(name: String, homeworkGiven : Int, grade : Double, coffee : Int, sleep : Int, money : Int) {
         self.name = name

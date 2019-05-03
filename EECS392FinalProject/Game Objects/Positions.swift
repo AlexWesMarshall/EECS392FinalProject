@@ -33,8 +33,10 @@ extension PointOfInterest {
     static let EuclidStarbucks = PointOfInterest(name: "\"Energy\" Store", location : CLLocation(latitude: 41.508156, longitude: -81.605971), isRegenPoint : false, encounter : Starbucks.EuclidStarbucks)
     static let PBL = PointOfInterest(name: "Business Center", location : CLLocation(latitude: 41.509816, longitude: -81.607754), isRegenPoint : false, encounter : CanvasNotification.PBLNotification)
     static let Village = PointOfInterest(name: "Village", location : CLLocation(latitude: 41.512195, longitude: -81.603606), isRegenPoint : true)
-    static let Wade = PointOfInterest(name: "Wade", location : CLLocation(latitude: 41.512987, longitude: -81.605153), isRegenPoint : false)
-    static let Fribley = PointOfInterest(name: "Fribley", location : CLLocation(latitude: 41.501059, longitude: -81.602561), isRegenPoint : false)
+    static let WadeQ = PointOfInterest(name: "Wade Quest Start", location : CLLocation(latitude: 41.512987, longitude: -81.605153), isRegenPoint : false)
+    static let Wade = PointOfInterest(name: "Wade", location : CLLocation(latitude: 41.512987, longitude: -81.605153), isRegenPoint : false, encounter : Quest.wadeQuest)
+    static let FribleyQ = PointOfInterest(name: "Wade Quest End", location : CLLocation(latitude: 41.501288, longitude: -81.602810), isRegenPoint : false)
+    static let Fribley = PointOfInterest(name: "Fribley", location : CLLocation(latitude: 41.501288, longitude: -81.602810), isRegenPoint : false, encounter : Quest.wadeQuest)
 }
 
 extension PointOfInterest: MKAnnotation {

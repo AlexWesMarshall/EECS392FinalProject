@@ -27,6 +27,8 @@ protocol GameDelegate: class {
     func studyEncounter(study : Study)
     func coffeeEncounter(coffeeShop : Starbucks, title : String?)
     func turnInHomework()
+    func startQuest(quest : Quest)
+    func endQuest(quest : Quest)
 }
 
 class Game {
@@ -44,14 +46,12 @@ class Game {
     }
     
     private func setupPOIs() {
-        pointsOfInterest = [.Sears, .KSL, .Tink, .Veale, .EuclidStarbucks, .PBL, .Village]
+        pointsOfInterest = [.Sears, .KSL, .Tink, .Veale, .EuclidStarbucks, .PBL, .Village, .Wade, .Fribley]
     }
     
     func visitedLocation(location: CLLocation) {
         guard let currentPOI = poiAtLocation(location: location) else { return }
-        if currentPOI.isRegenPoint {
-            regenAdventurer()
-        }
+        print("Searching")
         switch currentPOI.encounter {
         case let teacher as Teacher:
             delegate?.encounteredTeacher(teacher: teacher)
@@ -63,6 +63,17 @@ class Game {
             delegate?.coffeeEncounter(coffeeShop: coffeeShop, title : nil)
         case _ as Homework:
             delegate?.turnInHomework()
+        case let quest as Quest:
+            if(currentPOI.location.distance(from: quest.startLocation.location) < 0.001){
+                delegate?.startQuest(quest : quest)
+            }
+            if(currentPOI.location.distance(from: quest.endLocation.location) < 0.005){
+                print("ending quest")
+                delegate?.endQuest(quest : quest)
+            }
+            else{
+                print("False alarm")
+            }
         default:
             break
         }

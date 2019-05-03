@@ -16,7 +16,6 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var homeworkFinishedLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var questLabel: UILabel!
-    @IBOutlet weak var homeworkTimerLabel: UILabel!
     @IBOutlet weak var gradeLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +26,7 @@ class PlayerViewController: UIViewController {
         homeworkFinishedLabel.text = "Homework Assignments Finished: \(Game.shared.player?.homeworkComplete ?? 0)"
         moneyLabel.text = "Money: \(Game.shared.player?.money ?? 0)"
         gradeLabel.text = "Grade = \(Game.shared.player?.grade ?? 70)"
+        questLabel.text = "Quest: \(Game.shared.player?.quest?.description ?? "")"
     }
 }
 

@@ -25,3 +25,6 @@ extension Starbucks : Encounter{
 
 extension Homework : Encounter{
 }
+
+extension Quest : Encounter{
+}

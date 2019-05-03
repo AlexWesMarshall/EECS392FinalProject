@@ -28,6 +28,7 @@
 		40D9F410227B67E300D0D231 /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F40F227B67E300D0D231 /* Study.swift */; };
 		40D9F412227B763400D0D231 /* Starbucks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F411227B763400D0D231 /* Starbucks.swift */; };
 		40D9F414227BBB0B00D0D231 /* Homework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F413227BBB0B00D0D231 /* Homework.swift */; };
+		40D9F416227BC4F800D0D231 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9F415227BC4F800D0D231 /* Quest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		40D9F40F227B67E300D0D231 /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
 		40D9F411227B763400D0D231 /* Starbucks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starbucks.swift; sourceTree = "<group>"; };
 		40D9F413227BBB0B00D0D231 /* Homework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework.swift; sourceTree = "<group>"; };
+		40D9F415227BC4F800D0D231 /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				40D9F40F227B67E300D0D231 /* Study.swift */,
 				40D9F411227B763400D0D231 /* Starbucks.swift */,
 				40D9F413227BBB0B00D0D231 /* Homework.swift */,
+				40D9F415227BC4F800D0D231 /* Quest.swift */,
 			);
 			path = "Game Objects";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				3F1F9134227748C000BAF186 /* Item.swift in Sources */,
 				3F1F91322275391100BAF186 /* Player.swift in Sources */,
 				3F1F913A2279095900BAF186 /* Game.swift in Sources */,
+				40D9F416227BC4F800D0D231 /* Quest.swift in Sources */,
 				3F1F912922725E5000BAF186 /* PlayerViewController.swift in Sources */,
 				3F1F91422279366300BAF186 /* Textbook.swift in Sources */,
 				40D9F40E227B457D00D0D231 /* CanvasNotification.swift in Sources */,

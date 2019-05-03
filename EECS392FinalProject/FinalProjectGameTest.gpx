@@ -11,30 +11,44 @@
         <name>Village</name>
         <cmt>Starting Point</cmt>
     </wpt>
+    <wpt lat="41.512987" lon="-81.605153">
+        <time>2019-04-18T12:00:30Z</time>
+        <name>Wade</name>
+        <cmt>Pick up quest</cmt>
+    </wpt>
     <wpt lat="41.509816" lon="-81.607754">
-        <time>2019-04-18T12:00:15Z</time>
+        <time>2019-04-18T12:00:50Z</time>
         <name>PBL</name>
-        <cmt>I dont know yet</cmt>
+        <cmt>Canvas notification</cmt>
     </wpt>
     <wpt lat="41.508165" lon="-81.608554">
-        <time>2019-04-18T12:00:30Z</time>
-        <!-- <time>2017-04-18T19:08:33Z</time> -->
+        <time>2019-04-18T12:01:10Z</time>
         <name>Tink</name>
-        <cmt>Goblin Fight</cmt>
+        <cmt>Study</cmt>
     </wpt>
     <wpt lat="41.508156" lon="-81.605971">
-        <time>2019-04-18T12:00:45Z</time>
+        <time>2019-04-18T12:01:30Z</time>
         <name>Euclid Starbucks</name>
-        <cmt>Wake me up</cmt>
+        <cmt>Buy covfefe</cmt>
     </wpt>
     <wpt lat="41.508165" lon="-81.608554">
-        <time>2019-04-18T12:01:00Z</time>
+        <time>2019-04-18T12:01:50Z</time>
         <name>KSL</name>
         <cmt>Study</cmt>
     </wpt>
     <wpt lat="41.502789" lon="-81.608062">
-        <time>2019-04-18T12:01:15Z</time>
-        <name>Sears Building</name>
-        <cmt>Ending Point</cmt>
+        <time>2019-04-18T12:02:10Z</time>
+        <name>Sears</name>
+        <cmt>Turn in homework</cmt>
+    </wpt>
+    <wpt lat="41.501059" lon="-81.602561">
+        <time>2019-04-18T12:02:30Z</time>
+        <name>Fribley</name>
+        <cmt>Complete Quest</cmt>
+    </wpt>
+    <wpt lat="41.512195" lon="-81.603606">
+        <time>2019-04-18T12:03:00Z</time>
+        <name>Village</name>
+        <cmt>Go back to village</cmt>
     </wpt>
 </gpx>
